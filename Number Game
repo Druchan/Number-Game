@@ -1,0 +1,48 @@
+import java.util.Random;
+import java.util.Scanner;
+public class NumberGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int RandomNumber;
+        int MaxAttempt = 5;
+        int Attempts;
+        int Guess = -1; 
+        int RoundNumber = 0;
+        int Score = 0;
+        String PlayAgain;
+        System.out.println("Welcome to the Number Game!");
+        System.out.println("Computer Has Generated Random Numbers Between 1 to 100.");
+        System.out.println("Guess a Number Between 1 to 100. You Have Only 5 hances to Guess.");
+        do {
+            RandomNumber = random.nextInt(100) + 1;
+            Attempts = 0;
+            while (Attempts < MaxAttempt) {
+                System.out.println("Enter your guess:");
+                System.out.println("Attempt Number "+(Attempts+1)+":");
+                Guess = scanner.nextInt();
+                Attempts++;
+                if (Guess > RandomNumber) {
+                    System.out.println("Too high!");
+                } else if (Guess < RandomNumber) {
+                    System.out.println("Too low!");
+                } else {
+                    System.out.println("Congratulations! You have guessed it correctly.");
+                    System.out.println("Number of attempts you have taken to guess is: " + Attempts);
+                    Score += MaxAttempt - Attempts + 1;
+                    break;
+                }
+            }
+            if (Attempts == MaxAttempt && Guess != RandomNumber) {
+                System.out.println("LImit Reached. The Exact Guess is: " + RandomNumber);
+            }
+            RoundNumber++;
+            System.out.print("Do you want to play another round? (y/n): ");
+            PlayAgain = scanner.next();
+        } while (PlayAgain.equalsIgnoreCase("y"));
+
+        System.out.println("Game Over! You Have played " + RoundNumber + "Round ,"+" And You've Scored " + Score + ".");
+        System.out.println("Thank You For Playing!");
+        scanner.close();
+    }
+}
