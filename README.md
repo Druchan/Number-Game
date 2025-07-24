@@ -78,12 +78,7 @@ Thank You For Playing!
 
 ## Author
 
-- Your Name
-
-## License
-
-This project is licensed under the MIT License.
+- Chandru S
 
 ---
 
-Feel free to customize any section according to your preferences or additional details you might want to include.
